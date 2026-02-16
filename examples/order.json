@@ -1,0 +1,23 @@
+{
+  "order_amount": 10000,
+  "purchase_country": "US",
+  "purchase_currency": "USD",
+  "order_lines": [
+    {
+      "type": "physical",
+      "name": "Red T-Shirt",
+      "quantity": 1,
+      "unit_price": 10000,
+      "tax_rate": 0,
+      "total_amount": 10000,
+      "total_discount_amount": 0,
+      "total_tax_amount": 0
+    }
+  ],
+  "merchant_urls": {
+    "confirmation": "https://example.com/confirmation",
+    "authorization": "https://example.com/authorization"
+  },
+  "merchant_reference1": "ORDER-12345",
+  "merchant_reference2": "REF-67890"
+}

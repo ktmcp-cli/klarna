@@ -1,0 +1,28 @@
+{
+  "order_amount": 10000,
+  "purchase_country": "US",
+  "purchase_currency": "USD",
+  "order_lines": [
+    {
+      "type": "physical",
+      "name": "Red T-Shirt",
+      "quantity": 1,
+      "unit_price": 10000,
+      "tax_rate": 0,
+      "total_amount": 10000,
+      "total_discount_amount": 0,
+      "total_tax_amount": 0
+    }
+  ],
+  "billing_address": {
+    "given_name": "John",
+    "family_name": "Doe",
+    "email": "john.doe@example.com",
+    "street_address": "123 Main Street",
+    "postal_code": "12345",
+    "city": "New York",
+    "region": "NY",
+    "phone": "+15551234567",
+    "country": "US"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "order_amount": 35000,
+  "purchase_country": "US",
+  "purchase_currency": "USD",
+  "order_lines": [
+    {
+      "type": "physical",
+      "name": "Red T-Shirt",
+      "quantity": 2,
+      "unit_price": 10000,
+      "tax_rate": 800,
+      "total_amount": 20000,
+      "total_discount_amount": 0,
+      "total_tax_amount": 1600
+    },
+    {
+      "type": "physical",
+      "name": "Blue Jeans",
+      "quantity": 1,
+      "unit_price": 15000,
+      "tax_rate": 800,
+      "total_amount": 15000,
+      "total_discount_amount": 0,
+      "total_tax_amount": 1200
+    }
+  ],
+  "billing_address": {
+    "given_name": "Jane",
+    "family_name": "Smith",
+    "email": "jane.smith@example.com",
+    "street_address": "456 Oak Avenue",
+    "postal_code": "90210",
+    "city": "Los Angeles",
+    "region": "CA",
+    "phone": "+15559876543",
+    "country": "US"
+  },
+  "shipping_address": {
+    "given_name": "Jane",
+    "family_name": "Smith",
+    "email": "jane.smith@example.com",
+    "street_address": "456 Oak Avenue",
+    "postal_code": "90210",
+    "city": "Los Angeles",
+    "region": "CA",
+    "phone": "+15559876543",
+    "country": "US"
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "name": "klarna-payments",
+  "version": "1.0.0",
+  "description": "Klarna Payments API CLI tools for AI agents and automation",
+  "tools": [
+    {
+      "name": "klarna_create_session",
+      "description": "Create a new Klarna payment session with order details and customer information",
+      "command": "klarna sessions create --file {{file}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "file": {
+            "type": "string",
+            "description": "Path to JSON file with session data (requires: order_amount, purchase_country, purchase_currency, order_lines)"
+          }
+        },
+        "required": ["file"]
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "description": "Unique identifier for the created session"
+          },
+          "client_token": {
+            "type": "string",
+            "description": "Token to be used in frontend Klarna widget"
+          },
+          "expires_at": {
+            "type": "string",
+            "description": "ISO timestamp when session expires"
+          }
+        }
+      }
+    },
+    {
+      "name": "klarna_get_session",
+      "description": "Retrieve details of an existing Klarna payment session",
+      "command": "klarna sessions get {{session_id}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "description": "The session ID to retrieve"
+          }
+        },
+        "required": ["session_id"]
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "session_id": { "type": "string" },
+          "client_token": { "type": "string" },
+          "order_amount": { "type": "integer" },
+          "purchase_country": { "type": "string" },
+          "purchase_currency": { "type": "string" },
+          "order_lines": { "type": "array" }
+        }
+      }
+    },
+    {
+      "name": "klarna_update_session",
+      "description": "Update an existing Klarna payment session with new order details",
+      "command": "klarna sessions update {{session_id}} --file {{file}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "session_id": {
+            "type": "string",
+            "description": "The session ID to update"
+          },
+          "file": {
+            "type": "string",
+            "description": "Path to JSON file with updated session data"
+          }
+        },
+        "required": ["session_id", "file"]
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "session_id": { "type": "string" },
+          "status": { "type": "string" }
+        }
+      }
+    },
+    {
+      "name": "klarna_create_order",
+      "description": "Create a Klarna order from an authorization token received after customer payment",
+      "command": "klarna orders create {{auth_token}} --file {{file}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "auth_token": {
+            "type": "string",
+            "description": "Authorization token from payment flow (received after customer completes payment)"
+          },
+          "file": {
+            "type": "string",
+            "description": "Path to JSON file with order data (must include merchant_urls)"
+          }
+        },
+        "required": ["auth_token", "file"]
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "order_id": {
+            "type": "string",
+            "description": "Unique identifier for the created order"
+          },
+          "fraud_status": {
+            "type": "string",
+            "description": "Fraud check status (ACCEPTED, PENDING, REJECTED)"
+          }
+        }
+      }
+    },
+    {
+      "name": "klarna_cancel_authorization",
+      "description": "Cancel a payment authorization before order creation",
+      "command": "klarna authorizations cancel {{auth_token}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "auth_token": {
+            "type": "string",
+            "description": "Authorization token to cancel"
+          }
+        },
+        "required": ["auth_token"]
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "Cancellation status"
+          }
+        }
+      }
+    },
+    {
+      "name": "klarna_generate_customer_token",
+      "description": "Generate a customer token for recurring payments or saved payment methods",
+      "command": "klarna authorizations customer-token {{auth_token}}",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "auth_token": {
+            "type": "string",
+            "description": "Authorization token to generate customer token from"
+          }
+        },
+        "required": ["auth_token"]
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "token_id": {
+            "type": "string",
+            "description": "Customer token identifier for future use"
+          },
+          "status": {
+            "type": "string",
+            "description": "Token status"
+          }
+        }
+      }
+    }
+  ],
+  "setup": {
+    "install": "npm install -g @ktmcp-cli/klarna",
+    "configure": [
+      "export KLARNA_USERNAME=your_username",
+      "export KLARNA_PASSWORD=your_password",
+      "export KLARNA_REGION=eu"
+    ],
+    "verify": "klarna config show"
+  },
+  "examples": [
+    {
+      "description": "Create a payment session for $100 USD",
+      "steps": [
+        "cat > /tmp/session.json << 'EOF'\n{\"order_amount\":10000,\"purchase_country\":\"US\",\"purchase_currency\":\"USD\",\"order_lines\":[{\"name\":\"Product\",\"quantity\":1,\"unit_price\":10000,\"total_amount\":10000}]}\nEOF",
+        "klarna sessions create --file /tmp/session.json"
+      ]
+    },
+    {
+      "description": "Complete order from authorization token",
+      "steps": [
+        "cat > /tmp/order.json << 'EOF'\n{\"order_amount\":10000,\"purchase_country\":\"US\",\"purchase_currency\":\"USD\",\"order_lines\":[...],\"merchant_urls\":{\"confirmation\":\"https://example.com/confirm\",\"authorization\":\"https://example.com/auth\"}}\nEOF",
+        "klarna orders create AUTH_TOKEN_HERE --file /tmp/order.json"
+      ]
+    }
+  ]
+}
