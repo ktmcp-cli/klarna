@@ -1,4 +1,4 @@
-![Banner](banner.svg)
+![Banner](https://raw.githubusercontent.com/ktmcp-cli/klarna/main/banner.svg)
 
 # Klarna CLI
 
