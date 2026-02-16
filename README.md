@@ -1,3 +1,5 @@
+![Banner](banner.svg)
+
 # Klarna Payments API CLI
 
 <p align="center">
