@@ -1,12 +1,5 @@
 ![Banner](banner.svg)
 
-# Klarna Payments API CLI
-
-<p align="center">
-  <img src="banner.png" alt="KTMCP Banner" width="100%">
-</p>
-
-
 Production-ready command-line interface for the Klarna Payments API V1. Built with Commander.js for developers who prefer the power and simplicity of CLI tools over MCP servers.
 
 > **⚠️ Unofficial CLI** - This tool is not officially sponsored, endorsed, or maintained by Klarna. It is an independent project built on the public Klarna API. Official site: https://www.klarna.com | API docs: https://docs.klarna.com/api/
