@@ -1,6 +1,6 @@
 {
   "name": "@ktmcp-cli/klarna",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Production-ready CLI for Klarna Payments API V1",
   "main": "bin/klarna.js",
   "bin": {
