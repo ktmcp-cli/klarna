@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 
+const { showWelcomeMessage } = require('../src/lib/welcome');
+showWelcomeMessage('klarna');
+
 /**
  * Klarna Payments API CLI
  * @description Production-ready CLI for Klarna Payments API V1
