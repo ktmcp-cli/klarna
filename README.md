@@ -1,5 +1,10 @@
 ![Banner](https://raw.githubusercontent.com/ktmcp-cli/klarna/main/banner.svg)
 
+> "Six months ago, everyone was talking about MCPs. And I was like, screw MCPs. Every MCP would be better as a CLI."
+>
+> — [Peter Steinberger](https://twitter.com/steipete), Founder of OpenClaw
+> [Watch on YouTube (~2:39:00)](https://www.youtube.com/@lexfridman) | [Lex Fridman Podcast #491](https://lexfridman.com/peter-steinberger/)
+
 # Klarna CLI
 
 Production-ready command-line interface for the Klarna Payments API V1. Built with Commander.js for developers who prefer the power and simplicity of CLI tools over MCP servers.
