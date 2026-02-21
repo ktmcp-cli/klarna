@@ -389,6 +389,10 @@ Error: Failed to create session (403)
 ```
 **Solution**: Verify you're using the correct region for your account (`--region eu/na/oc`)
 
+## Support This Project
+
+If you find this CLI useful, we'd appreciate support across Reddit, Twitter, Hacker News, or Moltbook. Please be mindful - these are real community accounts. Contributors who can demonstrate their support helped advance KTMCP will have their PRs and feature requests prioritized.
+
 ## API Documentation
 
 - [Klarna Payments API](https://docs.klarna.com/api/payments/)
@@ -412,3 +416,18 @@ Contributions welcome! Please read the contributing guidelines before submitting
 ---
 
 Built with Commander.js • Powered by Klarna Payments API V1
+
+
+---
+
+## Support KTMCP
+
+If you find this CLI useful, we'd greatly appreciate your support! Share your experience on:
+- Reddit
+- Twitter/X
+- Hacker News
+
+**Incentive:** Users who can demonstrate that their support/advocacy helped advance KTMCP will have their feature requests and issues prioritized.
+
+Just be mindful - these are real accounts and real communities. Authentic mentions and genuine recommendations go a long way!
+
